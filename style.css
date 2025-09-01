@@ -1,0 +1,152 @@
+
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ===== FLEXBOX CONTAINER ===== */
+        .container {
+            /* Main container uses Flexbox for vertical layout */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER WITH FLEXBOX NAVIGATION ===== */
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem;
+            
+            /* Flexbox for header layout */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav {
+            /* Flexbox for navigation items */
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #3498db;
+        }
+
+        /* ===== MAIN CONTENT WITH CSS GRID ===== */
+        .main-content {
+            flex: 1; /* Takes remaining space in flex container */
+            padding: 2rem;
+            
+            /* CSS Grid for main content layout */
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 2rem;
+        }
+
+        .hero {
+            background: #ecf0f1;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        /* ===== CARDS SECTION WITH CSS GRID ===== */
+        .cards {
+            /* CSS Grid for card layout */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* ===== MEDIA QUERIES FOR RESPONSIVENESS ===== */
+
+        /* Tablet breakpoint */
+        @media (max-width: 768px) {
+            .header {
+                /* Stack header items vertically on smaller screens */
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav {
+                /* Center navigation on mobile */
+                justify-content: center;
+            }
+            
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .cards {
+                /* Single column on tablets */
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile breakpoint */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 1rem;
+            }
+            
+            .nav {
+                /* Stack navigation vertically on mobile */
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .card {
+                padding: 1rem;
+            }
+        }
+
+        /* Large screen optimization */
+        @media (min-width: 1200px) {
+            .cards {
+                /* Maximum 3 columns on large screens */
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .main-content {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+    
